@@ -18,8 +18,7 @@ function create(name, email, password) {
      const collection = db.collection('users');
      const doc = {name, email, password, balance: 0};
      collection.insertOne(doc, {w:1}, function(err, result) {
-         err ? reject(err) : resolve(doc);
-    
+         err ? reject(err) : resolve(doc)
      });
  })  
 

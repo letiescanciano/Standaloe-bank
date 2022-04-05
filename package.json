@@ -4,6 +4,7 @@
   "description": "lowdb sample for 1.125",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "jest"
   },
   "author": "abel@mit.edu",
@@ -16,6 +17,6 @@
     "http-server": "^14.1.0",
     "lowdb": "^1.0.0",
     "mongodb": "^3.7.3",
-    "node": "^16.9.1"
+    "nodemon": "^2.0.15"
   }
 }

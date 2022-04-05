@@ -1,25 +1,33 @@
-function Spa() {
-  return (
-    <HashRouter>
-      <div>
-        <NavBar/>        
-        <UserContext.Provider value={{users:[{name:'abel',email:'abel@mit.edu',password:'secret',balance:100}]}}>
-          <div className="container" style={{padding: "20px"}}>
-            <Route path="/" exact component={Home} />
-            <Route path="/CreateAccount/" component={CreateAccount} />
-            <Route path="/login/" component={Login} />
-            <Route path="/deposit/" component={Deposit} />
-            <Route path="/withdraw/" component={Withdraw} />
-            <Route path="/balance/" component={Balance} />
-            <Route path="/alldata/" component={AllData} />
-          </div>
-        </UserContext.Provider>
-      </div>
-    </HashRouter>
-  );
-}
+// Contains and runs the Express application, you are requiring the DAL application, so you can use the functions you exported
+//to manipulate the database
 
-ReactDOM.render(
-  <Spa/>,
-  document.getElementById('root')
-);
+var express = require('express')
+var app = express()
+var cors = require('cors')
+var dal = require('./dal.js')
+
+// app.use(express.static('public'));
+app.use(express.static('public')) //<--Leti didn't use this
+app.use(cors())
+//create user account(calls the DAL)
+app.get('/account/create/:name/:email/:password', function (req, res) {
+  //else create user
+  dal
+    .create(req.params.name, req.params.email, req.params.password)
+    .then(user => {
+      console.log(user)
+      res.json(user)
+    })
+})
+//All accounts
+app.get('/account/all', function (req, res) {
+  dal.all().then(docs => {
+    console.log(docs)
+    res.send(docs)
+  })
+})
+
+var port = 3001
+app.listen(port, () => {
+  console.log('Running on port: ' + port)
+})
