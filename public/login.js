@@ -35,8 +35,7 @@ function LoginForm(props) {
 
   function handle() {
     console.log(email, password)
-    const url = `/account/login/${email}/${password}`
-    ;(async () => {
+    const url = `/account/login/${email}/${password}`(async () => {
       var res = await fetch(url)
       var data = await res.json()
       console.log(data)
