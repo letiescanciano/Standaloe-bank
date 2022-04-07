@@ -34,6 +34,7 @@ function CreateForm(props){
     const url = `/account/create/${name}/${email}/${password}`;
     (async () => {
         var res  = await fetch(url);
+        console.log(res);
         var data = await res.json();    
         console.log(data);        
     })();
