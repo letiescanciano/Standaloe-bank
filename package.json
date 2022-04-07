@@ -4,7 +4,7 @@
   "description": "lowdb sample for 1.125",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "test": "jest"
   },
   "author": "abel@mit.edu",
@@ -16,7 +16,7 @@
     "firebase": "^9.6.10",
     "http-server": "^14.1.0",
     "lowdb": "^1.0.0",
-    "mongodb": "^3.7.3",
-    "nodemon": "^2.0.15"
+    "method-override": "^3.0.0",
+    "mongodb": "^3.7.3"
   }
 }

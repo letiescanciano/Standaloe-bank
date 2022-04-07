@@ -21,7 +21,7 @@ function DepositMsg(props){
       className="btn btn-light" 
       onClick={() => {
           props.setShow(true)}}>
-        Deposit again
+        
     </button>
   </>);
 } 
@@ -31,8 +31,8 @@ function DepositForm(props){
   const [amount, setAmount] = React.useState('');
 
   function handle(){
-    console.log(email,amount);
-    const url = `/account/deposit/${email}/${amount}`;
+   const url = `/account/deposit/${email}/${amount}`;
+  
     (async () => {
         var res = await fetch(url);
         var data = await res.json();

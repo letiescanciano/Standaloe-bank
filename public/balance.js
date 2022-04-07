@@ -53,7 +53,7 @@ function BalanceForm(props){
     <button type="submit" 
       className="btn btn-light" 
       onClick={handle}>
-        Check Balance
+         Balance
     </button>
 
   </>);
